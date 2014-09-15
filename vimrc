@@ -72,3 +72,13 @@ set si " Smart indet
 set wrap " Wrap lines
 
 set number
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Autocmds for running header files for perl and python files
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd bufnewfile *.pl so $HOME/perl_header.txt
+autocmd bufnewfile *.pl exe "1," . 6 . "g/File Name :.*/s//File Name : " .expand("%")
+autocmd Bufwritepre,filewritepre *.pl execute "normal ma"
+autocmd Bufwritepre,filewritepre *.pl exe "1," . 6 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
+autocmd bufwritepost,filewritepost *.pl execute "normal `a"
