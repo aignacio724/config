@@ -82,3 +82,9 @@ autocmd bufnewfile *.pl exe "1," . 6 . "g/File Name :.*/s//File Name : " .expand
 autocmd Bufwritepre,filewritepre *.pl execute "normal ma"
 autocmd Bufwritepre,filewritepre *.pl exe "1," . 6 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.pl execute "normal `a"
+
+autocmd bufnewfile *.py so $HOME/python_header.txt
+autocmd bufnewfile *.py exe "1," . 6 . "g/File Name :.*/s//File Name : " .expand("%")
+autocmd Bufwritepre,filewritepre *.py execute "normal ma"
+autocmd Bufwritepre,filewritepre *.py exe "1," . 6 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
+autocmd bufwritepost,filewritepost *.py execute "normal `a"
